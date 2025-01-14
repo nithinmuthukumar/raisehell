@@ -1,6 +1,6 @@
 use dotenv::dotenv;
 use poise::{
-    serenity_prelude::{self as serenity, CreateEmbed},
+    serenity_prelude::{self as serenity, CreateEmbed, User},
     CreateReply,
 };
 use raisehell::{chances_of_hit, how_many_hellraisers, simulate_hellraiser_trigger};
@@ -44,7 +44,7 @@ async fn howmanyhellraisers(
     let embed = serenity::CreateEmbed::default()
         .title("Hellraiser Probabilities")
         .description(format!(
-            "**Initial Triggers:** {}\n\
+            "**Triggers:** {}\n\
             🪦 **Graveyard Size:** {}\n\
             🍂 **Seasons:** {}\n\
             🌟 **Beacons:** {}\n\
@@ -67,12 +67,12 @@ async fn simulatehellraiser(ctx: Context<'_>, gy_size: u32, hits: u32) -> Result
     // Create a different embed based on the result
     let embed = if result {
         serenity::CreateEmbed::default()
-            .title("Hellraiser Simulation")
+            .title(format!("{} cast Hellraiser", ctx.author().display_name()))
             .description("🎯 **You hit!** Hell was raised!")
             .color(serenity::Colour::FOOYOO) // Bright green for a hit
     } else {
         serenity::CreateEmbed::default()
-            .title("Hellraiser Simulation")
+            .title(format!("{} cast Hellraiser", ctx.author().display_name()))
             .description("😢 **You whiffed.** No hits this time.")
             .color(serenity::Colour::DARK_RED) // Red for a whiff
     };
@@ -98,7 +98,7 @@ async fn chancesofhit(
             ("Graveyard Size 🪦".to_string(), gy_size.to_string(), true),
             ("Hits 🎯".to_string(), hits.to_string(), true),
             (
-                "Triggers 🔄".to_string(),
+                "Triggers".to_string(),
                 triggers.unwrap_or(1).to_string(),
                 true,
             ),
