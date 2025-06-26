@@ -1,7 +1,16 @@
-Discord bot used in the izzet hellraiser discord
-Commands:
-howmanyhellraisers - Displays probabilities of number of Hellraisers based on input parameters
+## About `raisehell`
 
-simulatehellraiser - Simulates a Hellraiser trigger and displays the outcome
+**raisehell** is a custom Discord bot developed for the *Izzet Hellraiser* community. 
 
-chancesofhit - Displays probability of choosing a hit
+---
+
+### Commands
+
+#### `/howmanyhellraisers`
+Calculates and displays the probability distribution for how many **Capricious Hellraisers** you’re likely to see, based on your input parameters.
+
+#### `/simulatehellraiser`
+Simulates a **Hellraiser** trigger and outputs the spell that would be cast from your graveyard.
+
+#### `/chancesofhit`
+Computes the probability of hitting a specific card or category of card with a **Hellraiser** trigger.
