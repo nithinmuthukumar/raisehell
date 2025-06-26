@@ -1,4 +1,3 @@
-## About `raisehell`
 
 **raisehell** is a custom Discord bot developed for the *Izzet Hellraiser* community. 
 
